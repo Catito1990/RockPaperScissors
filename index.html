@@ -1,13 +1,53 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src = "javascript.js"> </script>
-    <title>Rock, Paper, Scissors</title>
-</head>
-<body>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
     
+        <h1> Play Rock, Paper, Scissors!</h1>
+        <h3> You get five rounds. <br> <br> Pick your poison: </h3>
+    
+    <div class="images">
+
+        <div id="rock-img">
+            <img src="images/rocks.png" width="200px" height="200px"> </img>
+            <p id="rock-text"> Rock </p>
+        </div>
+
+        <div id="paper-img">
+            <img src="images/paper.png" width="200px" height="200px"> </img>
+            <p id="paper-text"> Paper </p>
+        </div>
+
+        <div id="scissors-img">
+            <img src="images/scissors.png" width="200px" height="200px"> </img>
+            <p id="scissors-text"> Scissors </p>
+        </div>
+
+    </div>
+
+    <p 
+    style="display: flex;
+    justify-content: flex-start;
+    font-family: 'oddly_calmingregular';
+    font-size: larger;
+    padding: 100px 0px 0px 100px;"> You picked:&nbsp;&nbsp;<span id="playerSelected"></span> </p>
+
+    <p 
+    style="display: flex;
+    justify-content: flex-start;
+    font-family: 'oddly_calmingregular';
+    font-size: larger;
+    padding: 0px 0px 0px 100px"> The computer picked:&nbsp;&nbsp;<span id="computerSelected"></span></p>
+
+    <h4>Scorecard: </h4>
+    <p id="scorecard"></p>
+
+    <script src = "javascript.js"> </script>
+
 </body>
 </html>
