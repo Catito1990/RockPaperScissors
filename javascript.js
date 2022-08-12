@@ -62,13 +62,8 @@ rockImg.onclick = () => {
     playerScoreCount.textContent = `You: ${playerScore}`;
     computerScoreCount.textContent = `Computer: ${computerScore}`;
 
-    function end(playerScore, computerScore) {
-    if (playerScore === 5 || computerScore === 5) {
-    endModal.classList.remove("hidden");
-    pageCover.classList.remove("hidden"); 
-    }
 } 
-}
+
 
 paperImg.onclick = () => { 
 
@@ -114,4 +109,10 @@ computerScoreCount.textContent = `Computer: ${computerScore}`
 
 }
 
+function end(playerScore, computerScore) {
+    if (playerScore === 5 || computerScore === 5) {
+        modal.classList.add("hidden");
+        pageCover.classList.add("hidden"); 
+    } }
 
+end()
