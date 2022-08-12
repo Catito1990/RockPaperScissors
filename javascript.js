@@ -42,7 +42,6 @@ function getComputerChoice() {
 
 let playerScore = 0
 let computerScore = 0
-let roundWinner = ''
 
 rockImg.onclick = () => { 
 
@@ -55,11 +54,9 @@ rockImg.onclick = () => {
     } else if (computer === choices[1]) {
         scoreCard.innerHTML += "You picked rock, and the computer picked paper. You lose! Paper beats rock. <br>"
         computerScore++
-        roundWinner = 'computer'
     } else if (computer === choices[2]) {
         scoreCard.innerHTML += "You picked rock, and the computer picked scissors. You win! Rock beats scissors. <br>"
         playerScore++
-        roundWinner = 'player'
     }
     playerScoreCount.textContent = `You: ${playerScore}`;
     computerScoreCount.textContent = `Computer: ${computerScore}`;
@@ -67,7 +64,6 @@ rockImg.onclick = () => {
     end(playerScore, computerScore);
 
 } 
-
 
 paperImg.onclick = () => { 
 
@@ -78,13 +74,11 @@ paperImg.onclick = () => {
      if (computer === choices[0]) {
         scoreCard.innerHTML += "You picked paper, and the computer picked rock. You win! Paper beats rock. <br>"
         playerScore++
-        roundWinner = 'player'
     } else if (computer === choices[1]) {
         scoreCard.innerHTML += "You both picked paper. That's a tie. <br>"
     } else if (computer === choices[2]) {
         scoreCard.innerHTML += "You picked paper, and the computer picked scissors. You lose! Scissors beat paper. <br>"
         computerScore++
-        roundWinner = 'computer'
     }
     playerScoreCount.textContent = `You: ${playerScore}`
     computerScoreCount.textContent = `Computer: ${computerScore}`
@@ -101,11 +95,9 @@ scissorsImg.onclick = () => {
     if (computer === choices[0]) {
         scoreCard.innerHTML += "You picked scissors, and the computer picked rock. You lose! Rock beats scissors. <br>"
         computerScore++
-        roundWinner = 'computer'
     } else if (computer === choices[1]) {
         scoreCard.innerHTML += "You picked scissors, and the computer picked paper. You win! Scissors beat paper. <br>"
         playerScore++
-        roundWinner = 'player'
     } else if (computer === choices[2]) {
         scoreCard.innerHTML += "You both picked scissors. That's a tie. <br>"
 
@@ -136,7 +128,6 @@ function end(playerScore, computerScore) {
         endModal.classList.add("hidden");
         pageCover.classList.add("hidden"); 
         main.removeEventListener("focus", preventFocus);
-
         playerScore = 0
         computerScore = 0
         scoreCard.textContent = ""
@@ -144,5 +135,4 @@ function end(playerScore, computerScore) {
         playerText = ""
         playerScoreCount = ""
         computerScoreCount = ""
-        
       } )
