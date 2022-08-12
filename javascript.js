@@ -1,8 +1,24 @@
 let choices = ["rock", "paper", "scissors"]
-const compText = document.getElementById("computerSelected");
-const scoreCard = document.getElementById("scorecard")
-const playerText = document.getElementById("playerSelected");
 
+const rockImg = document.getElementById("rock-img")
+const paperImg = document.getElementById("paper-img")
+const scissorsImg = document.getElementById("scissors-img")
+
+const compText = document.getElementById("computerSelected");
+const playerText = document.getElementById("playerSelected");
+const scoreCard = document.getElementById("scorecard")
+
+const playerScoreCount = document.getElementById("playerScoreCount");
+const computerScoreCount = document.getElementById("computerScoreCount");
+
+let playerScore = 0
+let computerScore = 0
+let roundWinner = ''
+
+const endgameModal = document.getElementById('endgameModal')
+const endgameMsg = document.getElementById('endgameMsg')
+const restartBtn = document.getElementById('restartBtn')
+const overlay = document.getElementById('overlay')
 
 // Computer choice function
 function getComputerChoice() {
@@ -10,67 +26,83 @@ function getComputerChoice() {
     return computer
 } 
 
-// Player choice-making
-
-//If rock is clicked
-
-const rockImg = document.getElementById("rock-img")
 rockImg.onclick = () => { 
-    
-    playerText.textContent = "rock"
-    compText.textContent = `${getComputerChoice()}`;
-    
-    // Add to scorecard 
 
-    if (getComputerChoice === "rock") {
-        scoreCard.textContent = "That's a tie."
-        return
-    } else if (getComputerChoice === "paper") {
-        scoreCard.textContent = "You lose! Paper beats rock."
-        return
-    } else if (getComputerChoice === "scissors") {
-        scoreCard.textContent = "You win! Rock beats scissors."
-        return 
+    const computer = getComputerChoice();
+
+    playerText.textContent = choices[0]
+    compText.textContent = `${computer}`;
+        
+    if (computer === choices[0]) {
+
+        scoreCard.textContent += "You both picked rock. That's a tie."
+        
+    } else if (computer === choices[1]) {
+
+        scoreCard.textContent += "You picked rock, and the computer picked paper. You lose! Paper beats rock."
+        computerScore++
+        roundWinner = 'computer'
+        
+    } else if (computer === choices[2]) {
+
+        scoreCard.textContent += "You picked rock, and the computer picked scissors. You win! Rock beats scissors."
+        playerScore++
+        roundWinner = 'player'
+
     }
+
+    playerScoreCount.textContent = `You: ${playerScore}`;
+    computerScoreCount.textContent = `Computer: ${computerScore}`;
+
 }
-
-    //If paper is clicked
-
-const paperImg = document.getElementById("paper-img")
 
 paperImg.onclick = () => { 
-    
-    playerText.textContent = "paper"
-    compText.textContent = `${getComputerChoice()}`
 
-     // Add to scorecard 
+    const computer = getComputerChoice();
 
-    if (getComputerChoice === "rock") {
-        scoreCard.textContent = "You win! Paper beats rock."
-    } else if (getComputerChoice === "paper") {
-        scoreCard.textContent = "That's a tie."
-    } else if (getComputerChoice === "scissors") {
-        scoreCard.textContent = "You lose! Scissors beat paper." }
+    playerText.textContent = choices[1]
+    compText.textContent = `${computer}`
+
+     if (computer === choices[0]) {
+        scoreCard.textContent += "You picked paper, and the computer picked rock. You win! Paper beats rock."
+        playerScore++
+        roundWinner = 'player'
+        
+    } else if (computer === choices[1]) {
+        scoreCard.textContent += "You both picked paper. That's a tie."
+        
+    } else if (computer === choices[2]) {
+        scoreCard.textContent += "You picked paper, and the computer picked scissors. You lose! Scissors beat paper."
+        computerScore++
+        roundWinner = 'computer'
     }
 
-    // If scissors is clicked
-
-const scissorsImg = document.getElementById("scissors-img")
-scissorsImg.onclick = () => { 
-    
-    playerText.textContent = "scissors"
-    compText.textContents = `${getComputerChoice()}`
-
-    // Add to scorecard 
-
-    if (getComputerChoice === "rock") {
-        scoreCard.textContent = "You lose! Rock beats scissors."
-    } else if (getComputerChoice === "paper") {
-        scoreCard.textContent = "You win! Scissors beat paper."
-    } else if (getComputerChoice === "scissors") {
-        scoreCard.textContent = "That's a tie." }
+    playerScoreCount.textContent = `You: ${playerScore}`
+    computerScoreCount.textContent = `Computer: ${computerScore}`
 }
 
+scissorsImg.onclick = () => { 
+    
+    const computer = getComputerChoice();
+    
+    playerText.textContent = choices[2]
+    compText.textContent = `${computer}`
 
+    if (computer === choices[0]) {
+        scoreCard.textContent += "You picked scissors, and the computer picked rock. You lose! Rock beats scissors."
+        computerScore++
+        roundWinner = 'computer'
+        
+    } else if (computer === choices[1]) {
+        scoreCard.textContent += "You picked scissors, and the computer picked paper. You win! Scissors beat paper."
+        playerScore++
+        roundWinner = 'player'
+        
+    } else if (computer === choices[2]) {
+        scoreCard.textContent += "You both picked scissors. That's a tie."
+}
 
+playerScoreCount.textContent = `You: ${playerScore}`
+computerScoreCount.textContent = `Computer: ${computerScore}`
+}
 

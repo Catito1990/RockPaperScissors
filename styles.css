@@ -29,7 +29,7 @@ h4 {font-size: large;}
     padding-top: 30px;
 }
 
-#rock-text, #paper-text, #scissors-text {
+#rock-text, #paper-text, #scissors-text, #scorecard {
     display: flex;
     justify-content: center;
     font-family: 'oddly_calmingregular';
@@ -45,3 +45,61 @@ h4 {font-size: large;}
 #playerSelected, #computerSelected {
     color: #817f98
 }
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    top: 60%;
+    left: 50%;
+    width: 300px;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #ff8d9c;
+    border: 6px solid black;
+    text-align: center;
+    font-size: 30px;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+  }
+  
+  .active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #817f98;
+    opacity: 0.6;
+  }
+  
+  button {
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .btn {
+    font-family: 'oddly_calmingregular';
+    border-radius: 10px;
+    background-color: var(--secondary-dark);
+  }
+
+  .btn-restart {
+    padding: 10px 20px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }
+
+  .modal-title {
+    font-family: 'oddly_calmingregular';
+    font-size: 40px;
+    font-weight: bold;
+  }
