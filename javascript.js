@@ -18,7 +18,29 @@ let roundWinner = ''
 const endgameModal = document.getElementById('endgameModal')
 const endgameMsg = document.getElementById('endgameMsg')
 const restartBtn = document.getElementById('restartBtn')
-const overlay = document.getElementById('overlay')
+
+
+let modal = document.querySelector(".modal");
+let pageCover = document.querySelector(".pageCover");
+let main = document.querySelector("main");        
+
+window.onload = function() {
+    setTimeout(function(){ 
+        modal.classList.remove("hidden");
+  pageCover.classList.remove("hidden"); 
+  main.addEventListener("focus", preventFocus);
+    }, 500); 
+}
+
+document.getElementById("close").addEventListener("click", function(){
+  modal.classList.add("hidden");
+  pageCover.classList.add("hidden"); 
+  main.removeEventListener("focus", preventFocus);
+});
+
+function preventFocus (evt){
+  evt.preventDefault();
+}
 
 // Computer choice function
 function getComputerChoice() {
