@@ -4,12 +4,12 @@ const rockImg = document.getElementById("rock-img")
 const paperImg = document.getElementById("paper-img")
 const scissorsImg = document.getElementById("scissors-img")
 
-const compText = document.getElementById("computerSelected");
-const playerText = document.getElementById("playerSelected");
+let compText = document.getElementById("computerSelected");
+let playerText = document.getElementById("playerSelected");
 
 const scoreCard = document.getElementById("scorecard")
-const playerScoreCount = document.getElementById("playerScoreCount");
-const computerScoreCount = document.getElementById("computerScoreCount");
+let playerScoreCount = document.getElementById("playerScoreCount");
+let computerScoreCount = document.getElementById("computerScoreCount");
 
 let modal = document.querySelector(".modal");
 let pageCover = document.querySelector(".pageCover");
@@ -125,14 +125,5 @@ function end(playerScore, computerScore) {
     const restartBtn = document.getElementById("playagain")
 
     restartBtn.addEventListener("click", function(){
-        endModal.classList.add("hidden");
-        pageCover.classList.add("hidden"); 
-        main.removeEventListener("focus", preventFocus);
-        playerScore = 0
-        computerScore = 0
-        scoreCard.textContent = ""
-        compText = ""
-        playerText = ""
-        playerScoreCount = 0
-        computerScoreCount = 0
+        location.reload();
       } )
