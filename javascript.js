@@ -13,7 +13,9 @@ const computerScoreCount = document.getElementById("computerScoreCount");
 
 let modal = document.querySelector(".modal");
 let pageCover = document.querySelector(".pageCover");
-let main = document.querySelector("main");        
+let main = document.querySelector("main");
+let endModal = document.querySelector(".endModal");
+let finalMessage = document.getElementById("final-message")        
 
 window.onload = function() {
     setTimeout(function(){ 
@@ -62,6 +64,8 @@ rockImg.onclick = () => {
     playerScoreCount.textContent = `You: ${playerScore}`;
     computerScoreCount.textContent = `Computer: ${computerScore}`;
 
+    end(playerScore, computerScore);
+
 } 
 
 
@@ -84,6 +88,8 @@ paperImg.onclick = () => {
     }
     playerScoreCount.textContent = `You: ${playerScore}`
     computerScoreCount.textContent = `Computer: ${computerScore}`
+
+    end(playerScore, computerScore);
 }
 
 scissorsImg.onclick = () => { 
@@ -107,12 +113,36 @@ scissorsImg.onclick = () => {
 playerScoreCount.textContent = `You: ${playerScore}`
 computerScoreCount.textContent = `Computer: ${computerScore}`
 
+end(playerScore, computerScore);
+
 }
 
 function end(playerScore, computerScore) {
     if (playerScore === 5 || computerScore === 5) {
-        modal.classList.add("hidden");
-        pageCover.classList.add("hidden"); 
+        endModal.classList.remove("hidden");
+        pageCover.classList.remove("hidden"); 
+        if (playerScore > computerScore) {
+            finalMessage.textContent = "You win this round!" 
+        } else if (computerScore > playerScore) {
+            finalMessage.textContent = "Aww, sorry buddy. You lost this one. Try again?"
+         }
+        return
     } }
 
-end()
+
+    const restartBtn = document.getElementById("playagain")
+
+    restartBtn.addEventListener("click", function(){
+        endModal.classList.add("hidden");
+        pageCover.classList.add("hidden"); 
+        main.removeEventListener("focus", preventFocus);
+
+        playerScore = 0
+        computerScore = 0
+        scoreCard.textContent = ""
+        compText = ""
+        playerText = ""
+        playerScoreCount = ""
+        computerScoreCount = ""
+        
+      } )
