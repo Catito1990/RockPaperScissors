@@ -65,10 +65,8 @@ rockImg.onclick = () => {
         roundWinner = 'player'
 
     }
-
     playerScoreCount.textContent = `You: ${playerScore}`;
     computerScoreCount.textContent = `Computer: ${computerScore}`;
-
 }
 
 paperImg.onclick = () => { 
@@ -93,8 +91,6 @@ paperImg.onclick = () => {
         computerScore++
         roundWinner = 'computer'
     }
-
-    
     playerScoreCount.textContent = `You: ${playerScore}`
     computerScoreCount.textContent = `Computer: ${computerScore}`
 }
@@ -115,16 +111,13 @@ scissorsImg.onclick = () => {
     } else if (computer === choices[1]) {
         scoreCard.innerHTML += "You picked scissors, and the computer picked paper. You win! Scissors beat paper."
 
-
         playerScore++
         roundWinner = 'player'
         
     } else if (computer === choices[2]) {
-
         scoreCard.innerHTML += "You both picked scissors. That's a tie."
 
 }
-
 playerScoreCount.textContent = `You: ${playerScore}`
 computerScoreCount.textContent = `Computer: ${computerScore}`
 }
