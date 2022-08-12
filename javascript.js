@@ -133,6 +133,6 @@ function end(playerScore, computerScore) {
         scoreCard.textContent = ""
         compText = ""
         playerText = ""
-        playerScoreCount = ""
-        computerScoreCount = ""
+        playerScoreCount = 0
+        computerScoreCount = 0
       } )
