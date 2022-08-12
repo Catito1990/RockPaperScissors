@@ -61,3 +61,17 @@ h4 {
     justify-content: center;
     
 }
+
+#playerSelected, #computerSelected {
+  color: #817f98
+} 
+
+#scorecard {
+  display:flex;
+  flex-direction:column;
+}
+
+#bottom-half {
+  display:flex;
+  justify-content: space-evenly;
+}
