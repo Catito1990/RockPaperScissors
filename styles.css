@@ -29,33 +29,35 @@
 .modal { 
   position:absolute; 
   z-index:100; 
-  background-color:aliceblue;
-  border:2px double grey;
-  width:200px; 
-  height:200px; 
+  background-color:#ff8d9c;
+  border:6px solid black;
+  width:250px; 
+  height:250px; 
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   text-align:center;
+  border-radius: 25px;
 }
 
 .modalTitle {
-  margin:0;
-  background-color:#00a;
-  color:#ff0;
+  margin: 20px;
   padding:5px;
-  font-weight:bold;
-  font-size:1.1em;
+  font-family: 'hello_goodbyeregular';
+  font-weight: bold;
+  font-size: 40;
 }
 
 #close { 
-  background-color:#800080;
-  color:#ff0;
-  border:1px solid #e0e0e0;
+  font-family: 'oddly_calmingregular';
+  background-color: #f5e94a;
+  font-size: 20;
+  border: 5px solid black ; 
   padding:5px 10px;
+  border-radius: 25px;
 }
 
-#close:hover { background-color:#c000c0; }
+#close:hover { background-color:#55d47b ; }
 
 body {
     background-color: #fccc55;

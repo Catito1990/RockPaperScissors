@@ -6,19 +6,10 @@ const scissorsImg = document.getElementById("scissors-img")
 
 const compText = document.getElementById("computerSelected");
 const playerText = document.getElementById("playerSelected");
-const scoreCard = document.getElementById("scorecard")
 
+const scoreCard = document.getElementById("scorecard")
 const playerScoreCount = document.getElementById("playerScoreCount");
 const computerScoreCount = document.getElementById("computerScoreCount");
-
-let playerScore = 0
-let computerScore = 0
-let roundWinner = ''
-
-const endgameModal = document.getElementById('endgameModal')
-const endgameMsg = document.getElementById('endgameMsg')
-const restartBtn = document.getElementById('restartBtn')
-
 
 let modal = document.querySelector(".modal");
 let pageCover = document.querySelector(".pageCover");
@@ -27,10 +18,10 @@ let main = document.querySelector("main");
 window.onload = function() {
     setTimeout(function(){ 
         modal.classList.remove("hidden");
-  pageCover.classList.remove("hidden"); 
-  main.addEventListener("focus", preventFocus);
+        pageCover.classList.remove("hidden"); 
+        main.addEventListener("focus", preventFocus);
     }, 500); 
-}
+}   
 
 document.getElementById("close").addEventListener("click", function(){
   modal.classList.add("hidden");
@@ -42,30 +33,33 @@ function preventFocus (evt){
   evt.preventDefault();
 }
 
-// Computer choice function
 function getComputerChoice() {
     const computer =  choices[Math.floor(Math.random()*choices.length)];
     return computer
 } 
+
+let playerScore = 0
+let computerScore = 0
+let roundWinner = ''
 
 rockImg.onclick = () => { 
 
     const computer = getComputerChoice();
 
     playerText.textContent = choices[0]
-    compText.textContent = `${computer}`;
+    compText.textContent = `${computer}`
         
     if (computer === choices[0]) {
-        scoreCard.innerHTML += "You both picked rock. That's a tie."
+        scoreCard.innerHTML += "You both picked rock. That's a tie. <br>"
 
     } else if (computer === choices[1]) {
-        scoreCard.innerHTML += "You picked rock, and the computer picked paper. You lose! Paper beats rock."
+        scoreCard.innerHTML += "You picked rock, and the computer picked paper. You lose! Paper beats rock. <br>"
 
         computerScore++
         roundWinner = 'computer'
         
     } else if (computer === choices[2]) {
-        scoreCard.innerHTML += "You picked rock, and the computer picked scissors. You win! Rock beats scissors."
+        scoreCard.innerHTML += "You picked rock, and the computer picked scissors. You win! Rock beats scissors. <br>"
         
         playerScore++
         roundWinner = 'player'
