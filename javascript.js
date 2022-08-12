@@ -45,49 +45,45 @@ let roundWinner = ''
 rockImg.onclick = () => { 
 
     const computer = getComputerChoice();
-
     playerText.textContent = choices[0]
     compText.textContent = `${computer}`
         
     if (computer === choices[0]) {
         scoreCard.innerHTML += "You both picked rock. That's a tie. <br>"
-
     } else if (computer === choices[1]) {
         scoreCard.innerHTML += "You picked rock, and the computer picked paper. You lose! Paper beats rock. <br>"
-
         computerScore++
         roundWinner = 'computer'
-        
     } else if (computer === choices[2]) {
         scoreCard.innerHTML += "You picked rock, and the computer picked scissors. You win! Rock beats scissors. <br>"
-        
         playerScore++
         roundWinner = 'player'
-
     }
     playerScoreCount.textContent = `You: ${playerScore}`;
     computerScoreCount.textContent = `Computer: ${computerScore}`;
+
+    function end(playerScore, computerScore) {
+    if (playerScore === 5 || computerScore === 5) {
+    endModal.classList.remove("hidden");
+    pageCover.classList.remove("hidden"); 
+    }
+} 
 }
 
 paperImg.onclick = () => { 
 
     const computer = getComputerChoice();
-
     playerText.textContent = choices[1]
     compText.textContent = `${computer}`
 
      if (computer === choices[0]) {
         scoreCard.innerHTML += "You picked paper, and the computer picked rock. You win! Paper beats rock. <br>"
-
         playerScore++
         roundWinner = 'player'
-        
     } else if (computer === choices[1]) {
         scoreCard.innerHTML += "You both picked paper. That's a tie. <br>"
-
     } else if (computer === choices[2]) {
         scoreCard.innerHTML += "You picked paper, and the computer picked scissors. You lose! Scissors beat paper. <br>"
-        
         computerScore++
         roundWinner = 'computer'
     }
@@ -98,27 +94,24 @@ paperImg.onclick = () => {
 scissorsImg.onclick = () => { 
     
     const computer = getComputerChoice();
-    
     playerText.textContent = choices[2]
     compText.textContent = `${computer}`
 
     if (computer === choices[0]) {
-        scoreCard.innerHTML += "You picked scissors, and the computer picked rock. You lose! Rock beats scissors."
-
+        scoreCard.innerHTML += "You picked scissors, and the computer picked rock. You lose! Rock beats scissors. <br>"
         computerScore++
         roundWinner = 'computer'
-        
     } else if (computer === choices[1]) {
-        scoreCard.innerHTML += "You picked scissors, and the computer picked paper. You win! Scissors beat paper."
-
+        scoreCard.innerHTML += "You picked scissors, and the computer picked paper. You win! Scissors beat paper. <br>"
         playerScore++
         roundWinner = 'player'
-        
     } else if (computer === choices[2]) {
-        scoreCard.innerHTML += "You both picked scissors. That's a tie."
+        scoreCard.innerHTML += "You both picked scissors. That's a tie. <br>"
 
 }
 playerScoreCount.textContent = `You: ${playerScore}`
 computerScoreCount.textContent = `Computer: ${computerScore}`
+
 }
+
 
